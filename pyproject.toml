@@ -1,0 +1,11 @@
+[project]
+name = "imagestitch"
+version = "0.1.0"
+description = "Web app to stitch multiple images into a panorama image"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.115.8",
+    "matplotlib>=3.10.0",
+    "numpy>=2.2.2",
+]
