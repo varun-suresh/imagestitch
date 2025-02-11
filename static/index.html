@@ -18,34 +18,26 @@
             border: 1px solid #ddd;
             padding: 5px;
         }
+        .response-image {
+            max-width: 300px;
+            max-height: 300px;
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
     </style>
 </head>
 
 <body>
     <h1>Stitch Images</h1>
 
-    <form action="/stitch" method="post" enctype="multipart/form-data">
-        <input type="file" name="files" id="imageInput" accept="image/*" multiple>
-        <input type="submit" value="Stitch">
-
+    <form >
+        <input type="file" id="imageInput" accept="image/*" multiple>
+        <button type="button" id="uploadButton">Stitch</button>
     </form>
     <div id="preview"></div>
-    <script>
-        document.getElementById('imageInput').addEventListener('change',function(event) {
-            const preview = document.getElementById('preview');
-            preview.innerHTML = ''; // Clear previous images
-
-            Array.from(event.target.files).forEach(file => {
-                const reader = new FileReader();
-                reader.onload = function(e){
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.classList.add('preview-image');
-                    preview.appendChild(img);
-                };
-                reader.readAsDataURL(file);
-            });
-        });
-    </script>
+    <h2> Result </h2>
+    <div id="responsePreview"></div>
+    <div id="imageStitch"></div>
+    <script src="stitchImage.js"> </script>
 </body>
 </html>
