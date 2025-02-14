@@ -2,7 +2,6 @@ from typing import List, Dict, Union
 from fastapi import FastAPI, UploadFile
 from fastapi.staticfiles import StaticFiles
 import numpy as np
-import cv2
 from PIL import Image
 from stitch import Stitcher
 import io
@@ -20,5 +19,4 @@ def stitch_images(files: List[UploadFile]) -> Dict[str,Union[str,int]]:
     stitched_image = stitcher.stitch()
     stitched_image = Image.fromarray(stitched_image)
     stitched_image.save("static/stitched.jpg")
-    # return {"images": len(files)}
     return {"status": 200, "imageUrl": "/static/stitched.jpg"}
